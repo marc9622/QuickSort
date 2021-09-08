@@ -7,24 +7,26 @@ public class QuickSort {
     int[] array;
 
     if(args.length == 0) {
-      array = q.createRandomArray(10000, 10);
+      array = q.createRandomArray(20, 100);
     }
     else{
       array = q.StringArrayToIntArray(args);
     }
-    //System.out.println(Arrays.toString(array));
+    System.out.println(Arrays.toString(array));
+    long time = System.nanoTime();
+    q.sort(array, 0, array.length - 1);
+    time = System.nanoTime() - time;
+    System.out.println(Arrays.toString(array));
+    System.out.println("It took " + time + " nanoseonds to sort, which is " + (time / 1000000d) + " milliseconds.");
 
-    long time = 0;
-    for(int i = 0; i < 10000; i++) {
-      long temp = System.nanoTime();
-      q.sort(array, 0, array.length - 1);
-      time += System.nanoTime() - temp;
-      q.shuffleArray(array);
-      System.out.println(i + " " + time / 1000000000l);
-    }
-    
-    //System.out.println(Arrays.toString(array));
-    System.out.println(time / 1000000000l);
+    // long time = 0;
+    // for(int i = 0; i < 10000; i++) {
+    //   long temp = System.nanoTime();
+    //   q.sort(array, 0, array.length - 1);
+    //   time += System.nanoTime() - temp;
+    //   q.shuffleArray(array);
+    //   System.out.println(i + " " + time / 1000000000l);
+    // }
   }
 
   public void sort(int[] array, int start, int end) {

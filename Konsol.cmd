@@ -6,7 +6,7 @@ cd C:\Users\marcu\OneDrive\Gym -------\Programmering\QuickSort
 cls
 
 javac QuickSort.java
-set /p id=What number to search for? 
+set /p id=If you want to use a custom array, write it here:
 java QuickSort %id%
 
 pause
